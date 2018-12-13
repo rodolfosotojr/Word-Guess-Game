@@ -1,22 +1,31 @@
 //Create choices
 var wordChoice = ['rick', 'walker', 'hershel'];
 var randomArray = Math.floor(Math.random() * wordChoice.length);
-var randomWord = wordChoice[randomArray];
+var wordToGuess = wordChoice[randomArray];
 
 // console.log(randomWord)
 var wordGuess = document.getElementById("newWord");
 
 //Place underscores for letter position
 
+var selectedWord = null;
 var underScore = [];
+var lettersInWord = [];
+var correctLetter = [];
+var incorrectLetter = [];
+var totalGuesses = 0;
+var guessesLeft = 10;
+var letterGuessed = null;
+var wins = 0;
 
 function replaceUnderScore() {
-    for (var i = 0; i < randomWord.length; i++) {
+    for (var i = 0; i < wordToGuess.length; i++) {
         underScore.push('_');
     }
     return underScore;
 
 }
+
 
 wordGuess.textContent = replaceUnderScore();
 
@@ -24,16 +33,12 @@ console.log(underScore);
 
 
 //Initiate game by pressing a key
-
-document.onkeyup = function (event) {
-
-    var userGuess = event.key;
-
-    if(userGuess === "r");
+function startGame() {
+    lettersInWord = wordToGuess.split("");
     
-
-    console.log (userGuess);
 }
+
+console.log(lettersInWord);
 
 // var userGuess = 0;
 // document.onkeyup = function (event) {
